@@ -3,19 +3,19 @@
     <div class="row">
       <div class="col-sm-4 tab" @click="show('selling')">
         <div class="sub-tab">
-          <img :src="'/img/image1.jpg'">
+          <img :src="link('image1.jpg')">
           <h3>Selling a property?</h3>
         </div>
       </div>
       <div class="col-sm-4 tab" @click="show('renting')">
         <div class="sub-tab">
-          <img :src="'/img/image2.jpg'">
+          <img :src="link('image2.jpg')">
           <h3>Looking to rent or buy?</h3>
         </div>
       </div>
       <div class="col-sm-4 tab">
         <div class="sub-tab">
-          <img :src="'/img/image3.jpg'" @click="show('letting')">
+          <img :src="link('image3.jpg')" @click="show('letting')">
           <h3>Letting a property?</h3>
         </div>
       </div>
@@ -26,10 +26,15 @@
 <script>
 import bus from '../socket.js'
 
+import fileFuns from '../lib/file.js'
+
 export default {
   methods: {
     show() {
       this.$store.dispatch('showModal', 'contact')
+    },
+    link(file) {
+      return fileFuns.link(file)
     }
   }
 }
