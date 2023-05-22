@@ -1,6 +1,6 @@
 <template>
   <nav class="nav">
-    <img class="logo" :src="'/img/May-Kind-key-tiny-logo.jpg'">
+    <img class="logo" :src="link('May-Kind-key-tiny-logo.jpg')">
 
     <div v-if="mobile" class="hamburger">
       <i class="fas fa-hamburger" @click="toggleMenu()" />
@@ -49,6 +49,7 @@
 <script>
 import bus from '../socket.js'
 
+import fileFuns from '../lib/file.js'
 import params from '../lib/params.js'
 import mailFuns from '../lib/mail.js'
 
@@ -126,6 +127,9 @@ export default {
       } else {
         this.$store.dispatch('updateTab', tab)
       }
+    },
+    link(file) {
+      return fileFuns.link(file)
     },
     sendContact() {
       mailFuns.post({
