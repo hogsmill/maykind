@@ -30,7 +30,6 @@ const Mail = {
     if (!ok) {
       alert('Please complete all fields')
     } else {
-      console.log(data)
       $.ajax({
           type: 'GET',
           url: 'https://agilesimulations.co.uk/mail.php',

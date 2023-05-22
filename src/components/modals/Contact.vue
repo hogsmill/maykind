@@ -100,12 +100,15 @@ export default {
     },
     category() {
       return [
+        '',
         'Interests:',
         '  Selling: ' + this.selling,
         '  Valuation: ' + this.valuation,
         '  Looking to Buy: ' + this.buying,
         '  Looking to Rent: ' + this.torent,
-        '  Properties to rent: ' + this.renting
+        '  Properties to rent: ' + this.renting,
+        '',
+        'Comments:'
       ].join('\n')
     },
     sendFeedback() {
