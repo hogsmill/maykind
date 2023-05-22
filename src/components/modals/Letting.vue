@@ -1,59 +1,17 @@
 <template>
-  <vue-final-modal name="contact" classes="modal-container" content-class="vfm__content modal-content" v-model="modals['contact']">
+  <vue-final-modal name="letting" classes="modal-container" content-class="vfm__content modal-content" v-model="modals['letting']">
     <div class="float-right mr-2 mt-1">
       <button type="button" class="close" @click="hide" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="mt-4">
-      <h4>Contact Us</h4>
+      <h4>Managing Your Rental Properties</h4>
       <p class="modal-form">
         Thanks for visiting MayKind; please let us know how we can help you in the comments
         box below, and we'll get back to you as soon as we can. If you can tick what you're
         interested in below, we can better deal with your enquiry.
       </p>
-      <table>
-        <tr>
-          <td>
-            <input type="checkbox" v-model="selling">
-          </td>
-          <td class="left">
-            I have a property to sell
-          </td>
-          <td>
-            <input type="checkbox" v-model="valuation">
-          </td>
-          <td class="left">
-            I would like my property valued
-          </td>
-          <td>
-            <input type="checkbox" v-model="buying">
-          </td>
-          <td class="left">
-            I am looking to buy a property
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <input type="checkbox" v-model="torent">
-          </td>
-          <td class="left">
-            I have a property to rent
-          </td>
-          <td>
-            <input type="checkbox" v-model="renting">
-          </td>
-          <td class="left">
-            I am looking for rental properties
-          </td>
-          <td>
-            <input type="checkbox" v-model="other">
-          </td>
-          <td class="left">
-            I have other enquiries
-          </td>
-        </tr>
-      </table>
       <div class="modal-form">
         <input type="text" id="name" class="form-control" placeholder="Name">
         <br>
@@ -80,15 +38,6 @@ export default {
   components: {
     VueFinalModal
   },
-  data() {
-    return {
-      selling: false,
-      valuation: false,
-      buying: false,
-      torent: false,
-      renting: false
-    }
-  },
   computed: {
     modals() {
       return this.$store.getters.getModals
@@ -99,7 +48,7 @@ export default {
   },
   methods: {
     hide() {
-      this.$store.dispatch('hideModal', 'contact')
+      this.$store.dispatch('hideModal', 'letting')
     },
     interested(val) {
       return val ? 'yes' : ''
@@ -108,12 +57,7 @@ export default {
       return [
         '',
         'Interested in:',
-        '  Selling: ' + this.interested(this.selling),
-        '  Valuation: ' + this.interested(this.valuation),
-        '  Looking to Buy: ' + this.interested(this.buying),
-        '  Looking to Rent: ' + this.interested(this.torent),
-        '  Properties to rent: ' + this.interested(this.renting),
-        '  Other: ' + this.interested(this.other),
+        '  Properties to rent: yes',
         '',
         '',
         'Comments:'
@@ -122,7 +66,7 @@ export default {
     sendFeedback() {
       mailFuns.post({
         tomail: this.emails,
-        action: 'Contact from MayKind website',
+        action: 'Properties to rent Enquiry from MayKind website',
         name: encodeURIComponent(document.getElementById('name').value),
         mobile: encodeURIComponent(document.getElementById('mobile').value),
         email: encodeURIComponent(document.getElementById('email').value),

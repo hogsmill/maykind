@@ -30,6 +30,12 @@
             <i class="fas fa-envelope" /> Email
           </li>
         </ul>
+        <h4>Playground</h4>
+        <ul>
+          <li @click="setTab('fonts')">
+            Fonts
+          </li>
+        </ul>
       </div>
     </div>
     <div class="footer-logo-holder">
@@ -37,6 +43,24 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    show(modal) {
+      if (this.mobile) {
+        this.mobileContact = !this.mobileContact
+        window.scrollTo(0, 0)
+      } else {
+        this.$store.dispatch('showModal', modal)
+      }
+    },
+    setTab(tab) {
+      this.$store.dispatch('updateTab', tab)
+    }
+  }
+}
+</script>
 
 <style lang="scss">
   .footer {

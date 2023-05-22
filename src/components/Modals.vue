@@ -1,15 +1,24 @@
 <template>
   <div>
     <Contact v-if="modals['contact']" />
+    <Selling v-if="modals['selling']" />
+    <BuyingOrRenting v-if="modals['buying-or-renting']" />
+    <Letting v-if="modals['letting']" />
   </div>
 </template>
 
 <script>
 import Contact from './modals/Contact.vue'
+import Selling from './modals/Selling.vue'
+import BuyingOrRenting from './modals/BuyingOrRenting.vue'
+import Letting from './modals/Letting.vue'
 
 export default {
   components: {
-    Contact
+    Contact,
+    Selling,
+    BuyingOrRenting,
+    Letting
   },
   computed: {
     modals() {

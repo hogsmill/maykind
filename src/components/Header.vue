@@ -1,6 +1,9 @@
 <template>
   <nav class="nav">
-    <img class="logo" :src="link('May-Kind-key-tiny-logo.jpg')">
+    <div class="logo-holder" @click="setTab('main')">
+      <img class="logo" :src="link('May-Kind-key-tiny-logo.jpg')">
+    </div>
+    <h1>Sales and Lettings</h1>
 
     <div v-if="mobile" class="hamburger">
       <i class="fas fa-hamburger" @click="toggleMenu()" />
@@ -104,7 +107,6 @@ export default {
       this.hide()
     },
     show() {
-      console.log('here')
       if (this.mobile) {
         this.mobileContact = !this.mobileContact
         window.scrollTo(0, 0)
@@ -153,12 +155,25 @@ export default {
     width: 100%;
     z-index: 10;
     background-color: #fff;
-    height: 200px;
+    height: 220px;
 
-    .logo {
-      position: absolute;
-      left: 12px;
-      top: 12px;
+    .logo-holder {
+      &:hover {
+        cursor: pointer;
+      }
+
+      .logo {
+        position: absolute;
+        left: 12px;
+        top: 12px;
+      }
+    }
+
+    h1 {
+      color: #888;
+      padding-top: 160px;
+      font-family: 'Cormorant';
+      font-size: 41px;
     }
 
     .nav-bar {
@@ -168,7 +183,7 @@ export default {
       ul {
         position: absolute;
         right: 12px;
-        margin-top: 140px;
+        margin-top: 170px;
 
         &.hide {
           height: 0;

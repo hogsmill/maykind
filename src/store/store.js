@@ -7,11 +7,14 @@ export const store = createStore({
     connectionError: null,
     localStorageStatus: true,
     session: '',
-    tab: '',
+    tab: 'main',
     admin: false,
     siteAdmin: false,
     modals: {
-      contact: false
+      contact: false,
+      'buying-or-renting': false,
+      selling: false,
+      letting: false
     },
     emails: [
       'info@hogsmill.com',

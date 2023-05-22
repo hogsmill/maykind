@@ -7,7 +7,7 @@
           <h3>Selling a property?</h3>
         </div>
       </div>
-      <div class="col-sm-4 tab" @click="show('renting')">
+      <div class="col-sm-4 tab" @click="show('buying-or-renting')">
         <div class="sub-tab">
           <img :src="link('image2.jpg')">
           <h3>Looking to rent or buy?</h3>
@@ -30,8 +30,8 @@ import fileFuns from '../lib/file.js'
 
 export default {
   methods: {
-    show() {
-      this.$store.dispatch('showModal', 'contact')
+    show(modal) {
+      this.$store.dispatch('showModal', modal)
     },
     link(file) {
       return fileFuns.link(file)

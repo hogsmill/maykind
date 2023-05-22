@@ -9,7 +9,9 @@
     <Header />
     <div class="content">
       <Admin v-if="tab == 'admin'" />
-      <Main />
+      <Main v-if="tab == 'main'" />
+      <About v-if="tab == 'about'" />
+      <Fonts v-if="tab == 'fonts'" />
       <Footer />
     </div>
     <Modals />
@@ -25,6 +27,8 @@ import params from './lib/params.js'
 import Header from './components/Header.vue'
 import Admin from './components/Admin.vue'
 import Main from './components/Main.vue'
+import About from './components/About.vue'
+import Fonts from './components/Fonts.vue'
 import Footer from './components/Footer.vue'
 import Modals from './components/Modals.vue'
 
@@ -34,6 +38,8 @@ export default {
     Header,
     Admin,
     Main,
+    About,
+    Fonts,
     Footer,
     Modals
   },
@@ -59,14 +65,14 @@ export default {
     this.$store.dispatch('localStorageStatus', ls.check())
     this.$store.dispatch('updateAdmin', params.isParam('admin'))
 
-    bus.on('connectionError', (data) => {
-      this.$store.dispatch('updateConnectionError', data)
-    })
-
-    bus.on('updateConnections', (data) => {
-      this.$store.dispatch('updateConnectionError', null)
-      this.$store.dispatch('updateConnections', data)
-    })
+    //bus.on('connectionError', (data) => {
+    //  this.$store.dispatch('updateConnectionError', data)
+    //})
+    //
+    //bus.on('updateConnections', (data) => {
+    //  this.$store.dispatch('updateConnectionError', null)
+    //  this.$store.dispatch('updateConnections', data)
+    //})
   },
   methods: {
   }
@@ -82,10 +88,8 @@ export default {
 
   h1 {
     font-weight: bold;
-    letter-spacing: 2px;
     font-size: 80px;
     color: #fff;
-    text-shadow: 2px 2px #000;
   }
 
   .not-connected {
