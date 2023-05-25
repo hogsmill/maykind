@@ -26,7 +26,7 @@
           <li>
             <i class="fas fa-phone-alt" /> Phone
           </li>
-          <li>
+          <li @click="show('contact')">
             <i class="fas fa-envelope" /> Email
           </li>
         </ul>

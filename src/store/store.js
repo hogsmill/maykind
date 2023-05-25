@@ -18,7 +18,8 @@ export const store = createStore({
     },
     emails: [
       'info@hogsmill.com',
-      'steve@hogsmill.com'
+      'steve@hogsmill.com',
+      'info@maykind.co.uk'
     ]
   },
   getters: {
