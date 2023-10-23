@@ -11,7 +11,7 @@ do
   shift
 done
 
-BASEPORT=4851
+BASEPORT=4103
 REPO="https://github.com/hogsmill/maykind.git"
 MAINAPP="maykind"
 PROPERTYCOLLECTION="maykindProperties"
