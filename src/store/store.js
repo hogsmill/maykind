@@ -16,6 +16,7 @@ export const store = createStore({
       selling: false,
       letting: false
     },
+    properties: [],
     emails: [
       'info@hogsmill.com',
       'steve@hogsmill.com',
@@ -46,6 +47,9 @@ export const store = createStore({
     },
     getModals: (state) => {
       return state.modals
+    },
+    getProperties: (state) => {
+      return state.properties
     },
     getEmails: (state) => {
       return state.emails
@@ -85,11 +89,12 @@ export const store = createStore({
         state.modals[modals[i]] = false
       }
       state.modals[payload] = true
-      console.log(state.modals)
     },
     hideModal: (state, payload) => {
       state.modals[payload] = false
-      console.log(state.modals)
+    },
+    updateProperties: (state, payload) => {
+      state.properties = payload
     },
   },
   actions: {
@@ -119,6 +124,9 @@ export const store = createStore({
     },
     hideModal: ({ commit }, payload) => {
       commit('hideModal', payload)
-    }
+    },
+    updateProperties: ({ commit }, payload) => {
+      commit('updateProperties', payload)
+    },
   }
 })

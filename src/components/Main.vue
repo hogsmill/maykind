@@ -1,22 +1,22 @@
 <template>
   <div class="main-tab container-fluid text-center">
     <div class="row">
-      <div class="col-sm-4 tab" @click="show('selling')">
+      <div class="col-sm-4 tab" @click="setTab('selling')">
         <div class="sub-tab">
           <img :src="link('image1.jpg')">
-          <h3>Selling a property?</h3>
+          <h3>Valuation</h3>
         </div>
       </div>
-      <div class="col-sm-4 tab" @click="show('buying-or-renting')">
+      <div class="col-sm-4 tab" @click="setTab('Sale')">
         <div class="sub-tab">
           <img :src="link('image2.jpg')">
-          <h3>Looking to rent or buy?</h3>
+          <h3>Properties to Buy</h3>
         </div>
       </div>
       <div class="col-sm-4 tab">
         <div class="sub-tab">
-          <img :src="link('image3.jpg')" @click="show('letting')">
-          <h3>Letting a property?</h3>
+          <img :src="link('image3.jpg')" @click="setTab('Rental')">
+          <h3>Properties to Rent</h3>
         </div>
       </div>
     </div>
@@ -30,8 +30,8 @@ import fileFuns from '../lib/file.js'
 
 export default {
   methods: {
-    show(modal) {
-      this.$store.dispatch('showModal', modal)
+    setTab(tab) {
+      this.$store.dispatch('updateTab', tab)
     },
     link(file) {
       return fileFuns.link(file)
@@ -41,6 +41,9 @@ export default {
 </script>
 
 <style lang="scss">
+
+@import "../assets/colours.scss";
+
   .main-tab {
     padding-top: 48px;
     padding-bottom: 72px;
@@ -50,7 +53,7 @@ export default {
         width: 90%;
         height: 100%;
         margin-bottom: 24px;
-        background-color: #C602CE;
+        background-color: $mk-pink;
         color: #fff;
 
         img {

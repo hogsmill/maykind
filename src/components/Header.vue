@@ -14,6 +14,9 @@
         <li v-if="admin || siteAdmin" :class="{'active': tab == 'admin'}" @click="setTab('admin')">
           Admin
         </li>
+        <li v-if="admin || siteAdmin" :class="{'active': tab == 'test'}" @click="setTab('test')">
+          Test
+        </li>
         <li :class="{'active': tab == 'about'}" @click="setTab('about')">
           About Us
         </li>
@@ -45,7 +48,6 @@
         </div>
       </div>
     </div>
-
   </nav>
 </template>
 

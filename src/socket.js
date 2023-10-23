@@ -28,8 +28,6 @@ if (connectToAgileSimulations) {
 
   bus.on('sendCheckLogin', (data) => { asSocket.emit('sendCheckLogin', data) })
 
-  bus.on('sendRating', (data) => { asSocket.emit('sendRating', data) })
-
   asSocket.on('loginSuccess', (data) => { bus.emit('loginSuccess', data) })
 
   asSocket.on('logout', (data) => { bus.emit('logout', data) })
@@ -41,20 +39,20 @@ socket.on('updateConnections', (data) => { bus.emit('updateConnections', data) }
 
 // Send
 
-bus.on('sendTestMessage', (data) => { socket.emit('sendTestMessage', data) })
+bus.on('sendGetProperties', (data) => { socket.emit('sendGetProperties', data) })
 
-bus.on('sendEmitMessage', (data) => { socket.emit('sendEmitMessage', data) })
+bus.on('sendUpdateLive', (data) => { socket.emit('sendUpdateLive', data) })
+
+bus.on('sendCreateProperty', (data) => { socket.emit('sendCreateProperty', data) })
+
+bus.on('sendUpdateProperty', (data) => { socket.emit('sendUpdateProperty', data) })
+
+bus.on('sendDeleteProperty', (data) => { socket.emit('sendDeleteProperty', data) })
 
 bus.on('sendUploadFile', (data) => { socket.emit('sendUploadFile', data) })
 
-bus.on('sendShowGraph', (data) => { bus.emit('showGraph', data) })
-
 // Receive
 
-socket.on('testMessage', (data) => { bus.emit('testMessage', data) })
-
-socket.on('emitMessage', (data) => { bus.emit('emitMessage', data) })
-
-socket.on('fileUploaded', (data) => { bus.emit('fileUploaded', data) })
+socket.on('updateProperties', (data) => { bus.emit('updateProperties', data) })
 
 export default bus

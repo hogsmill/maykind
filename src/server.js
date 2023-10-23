@@ -8,7 +8,8 @@ const os = require('os')
 const prod = os.hostname() == 'agilesimulations' ? true : false
 const logFile = prod ? process.argv[4] : 'server.log'
 const port = prod ? process.env.VUE_APP_PORT : 3016
-const gameCollection =  prod ? process.env.VUE_APP_COLLECTION : 'socketTest'
+const siteCollection =  prod ? process.env.VUE_APP_COLLECTION : 'siteCollection'
+const propertyCollection =  prod ? process.env.VUE_APP_COLLECTION : 'propertyCollection'
 
 ON_DEATH((signal, err) => {
   let logStr = new Date()
@@ -55,7 +56,6 @@ if (!prod) {
   })
 }
 
-
 const dbStore = require('./store/dbStore.js')
 
 const MongoClient = require('mongodb').MongoClient
@@ -80,9 +80,11 @@ MongoClient.connect(url, { useUnifiedTopology: true, maxIdleTimeMS: maxIdleTime 
   if (err) throw err
   db = client.db('db')
 
-  db.createCollection(gameCollection, function(error, collection) {})
+  db.createCollection(propertyCollection, function(error, collection) {})
+  db.createCollection(siteCollection, function(error, collection) {})
 
-  db.gameCollection = db.collection(gameCollection)
+  db.propertyCollection = db.collection(propertyCollection)
+  db.siteCollection = db.collection(siteCollection)
 
   io.on('connection', (socket) => {
     const connection = socket.handshake.headers.host
@@ -102,12 +104,25 @@ MongoClient.connect(url, { useUnifiedTopology: true, maxIdleTimeMS: maxIdleTime 
       emit('updateConnections', {connections: connections, maxConnections: maxConnections})
     })
 
-    socket.on('sendTestMessage', (data) => { dbStore.testMessage(db, io, data, debugOn) })
+    // Site
 
-    socket.on('sendEmitMessage', (data) => { emit('emitMessage', data) })
+    socket.on('sendGetDescriptions', (data) => { console.log('here'); dbStore.getDescriptions(db, io, data, debugOn) })
 
-    socket.on('sendUploadFile', (data) => { dbStore.writeFile(db, io, data, debugOn) })
+    socket.on('sendUpdateDescription', (data) => { console.log('here'); dbStore.updateDescription(db, io, data, debugOn) })
 
+    // Properties
+
+    socket.on('sendGetProperties', (data) => { console.log('here'); dbStore.getProperties(db, io, data, debugOn) })
+
+    socket.on('sendUpdateLive', (data) => { console.log('here'); dbStore.updateLive(db, io, data, debugOn) })
+
+    socket.on('sendCreateProperty', (data) => { console.log('here'); dbStore.createProperty(db, io, data, debugOn) })
+
+    socket.on('sendUpdateProperty', (data) => { console.log('here'); dbStore.updateProperty(db, io, data, debugOn) })
+
+    socket.on('sendDeleteProperty', (data) => { console.log('here'); dbStore.deleteProperty(db, io, data, debugOn) })
+
+    socket.on('sendUploadFile', (data) => { console.log('here'); dbStore.uploadFile(db, io, data, debugOn) })
   })
 })
 

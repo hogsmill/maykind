@@ -9,7 +9,9 @@
     <Header />
     <div class="content">
       <Admin v-if="tab == 'admin'" />
+      <Test v-if="tab == 'test'" />
       <Main v-if="tab == 'main'" />
+      <Properties v-if="tab == 'Sale' || tab =='Rental'" :tab="tab" />
       <About v-if="tab == 'about'" />
       <Fonts v-if="tab == 'fonts'" />
       <Footer />
@@ -31,6 +33,9 @@ import About from './components/About.vue'
 import Fonts from './components/Fonts.vue'
 import Footer from './components/Footer.vue'
 import Modals from './components/Modals.vue'
+import Properties from './components/Properties.vue'
+
+import Test from './components/Test.vue'
 
 export default {
   name: 'App',
@@ -41,7 +46,9 @@ export default {
     About,
     Fonts,
     Footer,
-    Modals
+    Modals,
+    Properties,
+    Test
   },
   data() {
     return {
@@ -64,6 +71,12 @@ export default {
   created() {
     this.$store.dispatch('localStorageStatus', ls.check())
     this.$store.dispatch('updateAdmin', params.isParam('admin'))
+
+    bus.emit('sendGetProperties')
+
+    bus.on('updateProperties', (data) => {
+      this.$store.dispatch('updateProperties', data.properties)
+    })
 
     //bus.on('connectionError', (data) => {
     //  this.$store.dispatch('updateConnectionError', data)
