@@ -106,23 +106,23 @@ MongoClient.connect(url, { useUnifiedTopology: true, maxIdleTimeMS: maxIdleTime 
 
     // Site
 
-    socket.on('sendGetDescriptions', (data) => { console.log('here'); dbStore.getDescriptions(db, io, data, debugOn) })
+    socket.on('sendGetDescriptions', (data) => { dbStore.getDescriptions(db, io, data, debugOn) })
 
-    socket.on('sendUpdateDescription', (data) => { console.log('here'); dbStore.updateDescription(db, io, data, debugOn) })
+    socket.on('sendUpdateDescription', (data) => { dbStore.updateDescription(db, io, data, debugOn) })
 
     // Properties
 
-    socket.on('sendGetProperties', (data) => { console.log('here'); dbStore.getProperties(db, io, data, debugOn) })
+    socket.on('sendGetProperties', (data) => { dbStore.getProperties(db, io, data, debugOn) })
 
-    socket.on('sendUpdateLive', (data) => { console.log('here'); dbStore.updateLive(db, io, data, debugOn) })
+    socket.on('sendUpdateLive', (data) => { dbStore.updateLive(db, io, data, debugOn) })
 
-    socket.on('sendCreateProperty', (data) => { console.log('here'); dbStore.createProperty(db, io, data, debugOn) })
+    socket.on('sendCreateProperty', (data) => { dbStore.createProperty(db, io, data, debugOn) })
 
-    socket.on('sendUpdateProperty', (data) => { console.log('here'); dbStore.updateProperty(db, io, data, debugOn) })
+    socket.on('sendUpdateProperty', (data) => { dbStore.updateProperty(db, io, data, debugOn) })
 
-    socket.on('sendDeleteProperty', (data) => { console.log('here'); dbStore.deleteProperty(db, io, data, debugOn) })
+    socket.on('sendDeleteProperty', (data) => { dbStore.deleteProperty(db, io, data, debugOn) })
 
-    socket.on('sendUploadFile', (data) => { console.log('here'); dbStore.uploadFile(db, io, data, debugOn) })
+    socket.on('sendUploadFile', (data) => { dbStore.uploadFile(db, io, data, debugOn) })
   })
 })
 
