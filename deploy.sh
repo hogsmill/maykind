@@ -35,7 +35,7 @@ do
   let PORT=$BASEPORT+$i
 
   echo "------------------------------------------------"
-  echo "Installing $APP ($SITECOLLECTION, $MAINCOLLECTION, $PORT)"
+  echo "Installing $APP ($SITECOLLECTION, $PROPERTYCOLLECTION, $PORT)"
   echo "------------------------------------------------"
 
   DIR="/usr/apps/$APP"
