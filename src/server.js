@@ -8,8 +8,8 @@ const os = require('os')
 const prod = os.hostname() == 'agilesimulations' ? true : false
 const logFile = prod ? process.argv[4] : 'server.log'
 const port = prod ? process.env.VUE_APP_PORT : 3016
-const siteCollection =  prod ? process.env.VUE_APP_COLLECTION : 'siteCollection'
-const propertyCollection =  prod ? process.env.VUE_APP_COLLECTION : 'propertyCollection'
+const siteCollection =  prod ? process.env.VUE_APP_SITE_COLLECTION : 'siteCollection'
+const propertyCollection =  prod ? process.env.VUE_APP_PROPERTY_COLLECTION : 'propertyCollection'
 
 ON_DEATH((signal, err) => {
   let logStr = new Date()

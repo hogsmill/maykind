@@ -14,7 +14,8 @@ done
 BASEPORT=4851
 REPO="https://github.com/hogsmill/maykind.git"
 MAINAPP="maykind"
-MAINCOLLECTION="maykind"
+PROPERTYCOLLECTION="maykindProperties"
+SITECOLLECTION="maykindSite"
 MAINNAME="May Kind"
 ROUTES=(
   '',''
@@ -30,19 +31,11 @@ do
   if [ "$ROUTE" != "" ]; then
     APP="${APP}-${ROUTE}"
   fi
-  COLLECTION=$MAINCOLLECTION
-  if [ "$COLLECTIONSUFFIX" != "" ]; then
-    COLLECTION="${COLLECTION}${COLLECTIONSUFFIX}"
-  fi
   APPNAME=$MAINNAME
   let PORT=$BASEPORT+$i
 
   echo "------------------------------------------------"
-  if [ -z "$APPNAME" ]; then
-    echo "Installing $APP ($COLLECTION, $PORT)"
-  else
-    echo "Installing $APP ($COLLECTION, $PORT, $APPNAME)"
-  fi
+  echo "Installing $APP ($SITECOLLECTION, $MAINCOLLECTION, $PORT)"
   echo "------------------------------------------------"
 
   DIR="/usr/apps/$APP"
@@ -51,10 +44,8 @@ do
   fi
   ENVFILE="$DIR/.env"
   echo "VUE_APP_PORT=$PORT" > $ENVFILE
-  echo "VUE_APP_COLLECTION=$COLLECTION" >> $ENVFILE
-  if [ ! -z "$APPNAME" ]; then
-    echo "VUE_APP_NAME=$APPNAME" >> $ENVFILE
-  fi
+  echo "VUE_APP_PROPERTY_COLLECTION=$PROPERTYCOLLECTION" >> $ENVFILE
+  echo "VUE_APP_SITE_COLLECTION=$SITECOLLECTION" >> $ENVFILE
 
   cd $DIR
 
