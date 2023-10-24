@@ -14,7 +14,7 @@ if [ "$FORCE" != "true" -a "$GIT" == "Already up to date." ]; then
   exit 0
 fi
 
-npm install
+npm install --legacy-peer-deps
 npm run build
 rm /var/www/html/$APP/css/*
 rm /var/www/html/$APP/js/*
