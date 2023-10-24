@@ -63,8 +63,11 @@ export default {
 </script>
 
 <style lang="scss">
+
+@import "../assets/colours.scss";
+
   .footer {
-    background-color: #240DC9;
+    background-color: $mk-blue;
     color: #fff;
     padding: 24px;
     font-size: 18px;
