@@ -75,13 +75,6 @@ const emit = (event, data) => {
   io.emit(event, data)
 }
 
-const logIt = (logStr) => {
-  fs.appendFile(logFile, logStr, (err) => {
-    if (err) console.log(logStr)
-    process.exit()
-  })
-}
-
 let db
 MongoClient.connect(url, { useUnifiedTopology: true, maxIdleTimeMS: maxIdleTime }, (err, client) => {
   if (err) throw err
@@ -119,11 +112,11 @@ MongoClient.connect(url, { useUnifiedTopology: true, maxIdleTimeMS: maxIdleTime 
 
     // Properties
 
-    socket.on('sendGetProperties', (data) => { logIt('here'); dbStore.getProperties(db, io, data, debugOn) })
+    socket.on('sendGetProperties', (data) => { console.log('sendGetProperties'); dbStore.getProperties(db, io, data, debugOn) })
 
     socket.on('sendUpdateLive', (data) => { dbStore.updateLive(db, io, data, debugOn) })
 
-    socket.on('sendCreateProperty', (data) => { logIt('here create'); dbStore.createProperty(db, io, data, debugOn) })
+    socket.on('sendCreateProperty', (data) => { console.log('sendCreateProperty'); dbStore.createProperty(db, io, data, debugOn) })
 
     socket.on('sendUpdateProperty', (data) => { dbStore.updateProperty(db, io, data, debugOn) })
 
