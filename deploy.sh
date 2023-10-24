@@ -63,12 +63,7 @@ if [ -f "src/server.js" ]; then
     kill -9 $SERVER
   fi
 fi
-if [ $i == 0 ]; then
-  rm -rf $DIR/node_modules/.cache
-else
-  rm -rf node_modules
-  ln -s ../$MAINAPP/node_modules node_modules
-fi
+rm -rf $DIR/node_modules/.cache
 rm -rf $DIR/dist
 
 ps -ef | grep php | grep outdated
