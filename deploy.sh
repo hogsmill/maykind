@@ -26,7 +26,7 @@ if [ -f "src/server.js" ]; then
   fi
 fi
 sleep 5
-node /usr/apps/maykind/src/server.js 4103 "May Kind" /usr/apps/logs/maykind.log
+node /usr/apps/maykind/src/server.js 4103 "May Kind" /usr/apps/logs/maykind.log &
 
 rm -rf node_modules/.cache
 rm -rf dist
