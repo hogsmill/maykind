@@ -14,7 +14,7 @@ if (!prod) {
 console.log('Connecting to: ' + connStr)
 const socket = io(connStr)
 
-const connectToAgileSimulations = false // location.hostname != 'localhost'
+const connectToAgileSimulations = location.hostname != 'localhost'
 let asSocket
 if (connectToAgileSimulations) {
   console.log('Connecting to: ' + asConnStr)

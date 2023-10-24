@@ -126,6 +126,8 @@ MongoClient.connect(url, { useUnifiedTopology: true, maxIdleTimeMS: maxIdleTime 
   })
 })
 
+const port = process.argv[2] || 4103
+
 httpServer.listen(port, () => {
   console.log('Listening on *:' + port)
 })
