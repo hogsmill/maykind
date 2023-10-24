@@ -1,12 +1,9 @@
 <template>
   <div class="row property">
-    <div class="col-sm header address">
-      <div v-if="scope" class="return" @click="hideDetail()">
-        <i class="fas fa-arrow-left" /> Back to {{ scope }}
-      </div>
+    <div class="col-6 header address">
       {{ property.address.street }} {{ property.address.postcode1 }}
     </div>
-    <div class="col-sm header price">
+    <div class="col-6 header price">
       {{ property.price.type }} £{{ property.price.amount }}
       <span v-if="property.status.type == 'Rental'">
         per {{ property.price.rentalfrequency }}
@@ -35,7 +32,13 @@ export default {
 
 @import "../../assets/colours.scss";
 
-  .property {
+  .back {
+    background-color: $mk-pink;
+    color: #fff;
+    padding-left: 12px;
+  }
+
+  .property, .back {
     margin: 12px auto;
     border: 1px solid $mk-pink;
 

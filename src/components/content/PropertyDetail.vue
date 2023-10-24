@@ -1,11 +1,11 @@
 <template>
   <div class="row property-detail">
-    <div class="col-9 tab image">
+    <div class="col-sm-9 image">
       <div class="row">
-        <div class="col-8">
+        <div class="col-sm-8">
           <img v-if="property.images.length" class="main-image" :src="require('../../assets/img/properties/images/' + property.images[0])">
         </div>
-        <div class="col-4 images">
+        <div class="col-sm-4 images">
           <div v-if="property.images.length > 1">
             <div v-for="image, i in 2" :key="i">
               <img v-if="property.images.length > i" :src="require('../../assets/img/properties/images/' + property.images[i])">
@@ -13,7 +13,7 @@
           </div>
         </div>
       </div>
-      <div class="col-9 tab image">
+      <div class="col-sm-9">
         <h3>
           Description
         </h3>
@@ -22,7 +22,7 @@
         </p>
       </div>
     </div>
-    <div class="col-3 tab">
+    <div class="col-sm-3">
       <div class="row">
         <img v-if="property.floorplan" :src="require('../../assets/img/properties/floorplans/' + property.floorplan)">
       </div>

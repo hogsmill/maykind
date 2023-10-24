@@ -75,30 +75,6 @@
         </select>
       </td>
     </tr>
-    <tr>
-      <td>
-        Garage?
-      </td>
-      <td v-if="!editing">
-        <i v-if="property.details.garage" class="fas fa-check" />
-        <i v-if="!property.details.garage" class="fas fa-times" />
-      </td>
-      <td v-if="editing">
-        <input v-if="editing" :id="'details-garage-' + property.id" type="checkbox" :checked="property.details.garage">
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Off-street parking?
-      </td>
-      <td v-if="!editing">
-        <i v-if="property.details.offstreetparking" class="fas fa-check" />
-        <i v-if="!property.details.offstreetparking" class="fas fa-times" />
-      </td>
-      <td v-if="editing">
-        <input v-if="editing" :id="'details-offstreetparking-' + property.id" type="checkbox" :checked="property.details.offstreetparking">
-      </td>
-    </tr>
   </table>
 </template>
 

@@ -16,12 +16,15 @@
       </td>
     </tr>
     <tr>
+      <td>
+        Status
+      </td>
       <td v-if="!editing">
         {{ property.status.status }}
       </td>
       <td v-if="editing">
         <select :id="'status-status-' + property.id">
-          <option v-for="stat, sindex in statuses" :key="sindex" :selected="property.status.status == status">
+          <option v-for="stat, sindex in statuses" :key="sindex" :selected="property.status.status == stat">
             {{ stat }}
           </option>
         </select>
@@ -50,7 +53,7 @@ export default {
   ],
   data() {
     return {
-      status: [
+      statuses: [
         'For Sale',
         'Under Offer',
         'Sold Subject to Contract',

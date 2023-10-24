@@ -26,10 +26,12 @@ const _properties = [
       subtype: 'Semi-detached',
       bedrooms: 3,
       bathrooms: 2,
-      receptions: 2,
-      garage: false,
-      offstreetparking: true,
+      receptions: 2
     },
+    features: [
+      'Garage',
+      'Off Street Parking'
+    ],
     highlights: [
       'Near a school',
       'Good rails links',
@@ -85,10 +87,12 @@ const _properties = [
       subtype: '1st Floor',
       bedrooms: 2,
       bathrooms: 1,
-      receptions: 1,
-      garage: false,
-      offstreetparking: true,
+      receptions: 1
     },
+    features: [
+      'Garage',
+      'Off Street Parking'
+    ],
     highlights: [
       'Near a school',
       'Good rails links',
@@ -101,7 +105,7 @@ const _properties = [
     },
     lease: {
       freehold: false,
-      leaselength: 999,
+      leaselength: 99,
     },
     runningcosts: {
       groundrent: {
@@ -147,10 +151,12 @@ const _properties = [
       subtype: 'Detached',
       bedrooms: 4,
       bathrooms: 3,
-      receptions: 2,
-      garage: false,
-      offstreetparking: true,
+      receptions: 2
     },
+    features: [
+      'Garage',
+      'Off Street Parking'
+    ],
     highlights: [
       'Near a school',
       'Good rails links',

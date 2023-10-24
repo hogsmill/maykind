@@ -125,6 +125,7 @@
                 </div>
                 <Status v-if="isExpanded(property, 'details')" :property="property" :editing="inEditing(property, 'details')" />
                 <Details v-if="isExpanded(property, 'details')" :property="property" :editing="inEditing(property, 'details')" />
+                <Features v-if="isExpanded(property, 'details')" :property="property" :editing="inEditing(property, 'details')" />
               </td>
               <td>
                 <div v-if="!isExpanded(property, 'costs')">
@@ -203,6 +204,7 @@ import Address from './admin/Address.vue'
 import Descriptions from './admin/Descriptions.vue'
 import Status from './admin/Status.vue'
 import Details from './admin/Details.vue'
+import Features from './admin/Features.vue'
 import Price from './admin/Price.vue'
 import Lease from './admin/Lease.vue'
 import RunningCosts from './admin/RunningCosts.vue'
@@ -216,6 +218,7 @@ export default {
     Descriptions,
     Status,
     Details,
+    Features,
     Price,
     Lease,
     RunningCosts,
@@ -241,23 +244,6 @@ export default {
         'street',
         'postcode1',
         'postcode2'
-      ],
-      types: [
-        'Sale',
-        'Rental'
-      ],
-      statuses: [
-        'Available',
-        'Under Offer',
-        'Sold',
-        'Rented'
-      ],
-
-      rentalfrequencies: [
-        'Month',
-        'Quarter',
-        '6 Months',
-        'Year'
       ]
     }
   },
@@ -405,6 +391,24 @@ export default {
       }
       return property
     },
+    _saveFeatures(property) {
+      let i = 0
+      const features = []
+      let done = false
+      while (!done) {
+        const elem = document.getElementById('feature-' + i + '-' + property.id)
+        if (!elem) {
+          done = true
+        } else {
+          if (elem.checked) {
+            features.push(elem.name)
+          }
+        }
+        i++
+      }
+      property.features = features
+      return property
+    },
     saveDescription(property) {
       const vals = [
         'description',
@@ -417,6 +421,7 @@ export default {
     saveDetails(property) {
       const vals = [
         ['status', 'type'],
+        ['status', 'status'],
         ['details', 'type'],
         ['details', 'subtype'],
         ['details', 'bedrooms'],
@@ -424,12 +429,10 @@ export default {
         ['details', 'receptions']
       ]
       const bools = [
-        ['status', 'available'],
-        ['status', 'international'],
-        ['details', 'garage'],
-        ['details', 'offstreetparking']
+        ['status', 'international']
       ]
       property = this._save(property, vals, bools)
+      property = this._saveFeatures(property)
       bus.emit('sendUpdateProperty', property)
     },
     saveCosts(property) {

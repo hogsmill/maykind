@@ -13,6 +13,10 @@ const PropertyFuns = {
     const _property = _copy(property)
     _property[field] = value
     return _property
+  },
+
+  propFromString: function(str) {
+    return str[0].toLowerCase() + str.substr(1).split(' ').join('')
   }
 }
 

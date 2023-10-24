@@ -28,10 +28,12 @@ const _objects = {
       subtype: '',
       bedrooms: 0,
       bathrooms: 0,
-      receptions: 0,
-      garage: false,
-      offstreetparking: false,
+      receptions: 0
     },
+    features: [
+      {garage: false},
+      {offstreetparking: false},
+    ],
     description: '',
     localinfo: '',
     amenities: '',

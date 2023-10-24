@@ -10,6 +10,7 @@
     </div>
     <div v-if="detail.id">
       <div class="property-container">
+        <PropertyBack :scope="tab" />
         <PropertyHeader :property="detail" :scope="tab" />
         <PropertyDetail :property="detail" />
       </div>
@@ -20,12 +21,14 @@
 <script>
 import bus from '../socket.js'
 
+import PropertyBack from './content/PropertyBack.vue'
 import PropertyHeader from './content/PropertyHeader.vue'
 import Property from './content/Property.vue'
 import PropertyDetail from './content/PropertyDetail.vue'
 
 export default {
   components: {
+    PropertyBack,
     PropertyHeader,
     Property,
     PropertyDetail
