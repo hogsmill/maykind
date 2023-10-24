@@ -1,22 +1,28 @@
 <template>
   <div class="main-tab container-fluid text-center">
     <div class="row">
-      <div class="col-sm-4 tab" @click="setTab('selling')">
+      <div class="col-sm tab" @click="setTab('Sell')">
         <div class="sub-tab">
           <img :src="link('image1.jpg')">
-          <h3>Valuation</h3>
+          <h3>Sell</h3>
         </div>
       </div>
-      <div class="col-sm-4 tab" @click="setTab('Sale')">
+      <div class="col-sm tab" @click="setTab('Sale')">
         <div class="sub-tab">
           <img :src="link('image2.jpg')">
-          <h3>Properties to Buy</h3>
+          <h3>Buy</h3>
         </div>
       </div>
-      <div class="col-sm-4 tab">
+      <div class="col-sm tab">
         <div class="sub-tab">
           <img :src="link('image3.jpg')" @click="setTab('Rental')">
-          <h3>Properties to Rent</h3>
+          <h3>Rent</h3>
+        </div>
+      </div>
+      <div class="col-sm tab">
+        <div class="sub-tab">
+          <img :src="link('image3.jpg')" @click="setTab('Landlords')">
+          <h3>Landlords</h3>
         </div>
       </div>
     </div>
