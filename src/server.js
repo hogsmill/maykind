@@ -75,7 +75,7 @@ const emit = (event, data) => {
   io.emit(event, data)
 }
 
-const logIt = (logStr) {
+const logIt = (logStr) => {
   fs.appendFile(logFile, logStr, (err) => {
     if (err) console.log(logStr)
     process.exit()
