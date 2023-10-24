@@ -49,10 +49,12 @@ export default {
     padding-bottom: 72px;
 
     .tab {
+      margin-bottom: 24px;
+
       .sub-tab {
         width: 90%;
         height: 100%;
-        margin-bottom: 24px;
+        margin: 0 auto;
         background-color: $mk-pink;
         color: #fff;
 
