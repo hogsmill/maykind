@@ -9,7 +9,7 @@ if (!prod) {
   connStr = 'http://localhost:3016'
 } else {
   asConnStr = 'https://agilesimulations.co.uk:3099'
-  connStr = 'https://agilesimulations.co.uk:' + process.env.VUE_APP_PORT
+  connStr = 'https://agilesimulations.co.uk:4013'
 }
 console.log('Connecting to: ' + connStr)
 const socket = io(connStr)
