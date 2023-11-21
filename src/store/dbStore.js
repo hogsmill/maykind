@@ -70,7 +70,7 @@ const _objects = {
 
 function _load(db, io) {
   db.propertyCollection.find().toArray(function(err, res) {
-    console,log('_load result', err, res)
+    console.log('_load result', err, res)
     if (err) throw err
     var properties = []
     for (var i = 0; i < res.length; i++) {
@@ -78,6 +78,7 @@ function _load(db, io) {
       delete property._id
       properties.push(property)
     }
+    console.log('properties', properties)
     io.emit('updateProperties', {properties: properties})
   })
 }
