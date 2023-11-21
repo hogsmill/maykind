@@ -75,7 +75,7 @@ export default {
     bus.emit('sendGetProperties')
 
     bus.on('updateProperties', (data) => {
-      console.log('updateProperties', data)
+      console.log('updateProperties 2', data)
       this.$store.dispatch('updateProperties', data.properties)
     })
 

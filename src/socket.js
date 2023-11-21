@@ -52,6 +52,6 @@ bus.on('sendUploadFile', (data) => { socket.emit('sendUploadFile', data) })
 
 // Receive
 
-socket.on('updateProperties', (data) => { bus.emit('updateProperties', data) })
+socket.on('updateProperties', (data) => { console.log('updateProperties 1', data); bus.emit('updateProperties', data) })
 
 export default bus

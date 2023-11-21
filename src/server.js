@@ -69,7 +69,6 @@ const connections = {}
 const maxConnections = 2000
 
 const emit = (event, data) => {
-  console.log('emit', data)
   if (debugOn) {
     console.log(event, data, '(emit)')
   }
