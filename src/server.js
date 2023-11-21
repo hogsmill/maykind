@@ -63,12 +63,13 @@ const MongoClient = require('mongodb').MongoClient
 const url = prod ? 'mongodb://127.0.0.1:27017/' : 'mongodb://localhost:27017/'
 const maxIdleTime = 7200000
 const connectDebugOff = prod
-const debugOn = !prod
+const debugOn = true // !prod
 
 const connections = {}
 const maxConnections = 2000
 
 const emit = (event, data) => {
+  console.log('emit', data)
   if (debugOn) {
     console.log(event, data, '(emit)')
   }
