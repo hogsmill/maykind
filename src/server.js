@@ -60,7 +60,7 @@ const dbStore = require('./store/dbStore.js')
 
 const MongoClient = require('mongodb').MongoClient
 
-const url = prod ?  'mongodb://127.0.0.1:27017/' : 'mongodb://localhost:27017/'
+const url = prod ? 'mongodb://127.0.0.1:27017/' : 'mongodb://localhost:27017/'
 const maxIdleTime = 7200000
 const connectDebugOff = prod
 const debugOn = !prod

@@ -69,7 +69,7 @@ const _objects = {
 }
 
 function _load(db, io) {
-  console.log('_load')
+  console.log('_load', db.propertyCollection)
   db.propertyCollection.find().toArray(function(err, res) {
     console,log(err, res)
     if (err) throw err
