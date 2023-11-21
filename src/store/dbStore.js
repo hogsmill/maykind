@@ -69,8 +69,10 @@ const _objects = {
 }
 
 function _load(db, io) {
+  console.log('_load')
   db.propertyCollection.find().toArray(function(err, res) {
     if (err) throw err
+    console,log(res)
     var properties = []
     for (var i = 0; i < res.length; i++) {
       var property = res[i]
