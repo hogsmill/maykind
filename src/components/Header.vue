@@ -289,6 +289,8 @@ export default {
 @media screen and (max-width: 767px) {
   nav {
 
+    height: 245px !important;
+
     .hamburger {
       height: 42px;
 
@@ -308,6 +310,7 @@ export default {
 
       ul {
         padding: 0;
+        margin-top: 200px !important;
 
         li {
           width: 100%;
