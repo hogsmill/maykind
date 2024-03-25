@@ -143,8 +143,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+@import "../../assets/colours.scss";
+
   .modal-container {
 
+  .btn-info {
+    border: none;
+    background-color: $mk-pink;
+  }
     p.feedback-form {
       margin-bottom: 12px;
     }

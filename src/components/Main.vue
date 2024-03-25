@@ -3,19 +3,19 @@
     <div class="row">
       <div class="col-sm tab" @click="setTab('Sale')">
         <div class="sub-tab">
-          <img :src="link('image2.jpg')">
+          <img :src="link('sales.jpg')">
           <h3>Residential Sales</h3>
         </div>
       </div>
       <div class="col-sm tab">
         <div class="sub-tab">
-          <img :src="link('image3.jpg')" @click="setTab('Rental')">
+          <img :src="link('lettings.jpg')" @click="setTab('Rental')">
           <h3>Properties to Let</h3>
         </div>
       </div>
       <div class="col-sm tab" @click="setTab('Sell')">
         <div class="sub-tab">
-          <img :src="link('image1.jpg')">
+          <img :src="link('valuations.jpg')">
           <h3>Book a Valuation</h3>
         </div>
       </div>
@@ -41,7 +41,6 @@ import fileFuns from '../lib/file.js'
 export default {
   methods: {
     setTab(tab) {
-      console.log('here')
       this.show()
       //this.$store.dispatch('updateTab', tab)
     },

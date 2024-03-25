@@ -4,7 +4,7 @@
       <p class="center">
         MayKind Sales & Lettings<br>
         Company registration number: 14750234<br>
-        {{ email }}
+        <a class="email" @click="show('contact')">{{ email }}</a>
       </p>
     </div>
   </div>
@@ -45,6 +45,13 @@ export default {
 
     p {
       margin: 0 auto;
+    }
+
+    .email {
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
     }
 
     .right {
