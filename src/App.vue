@@ -72,6 +72,8 @@ export default {
     this.$store.dispatch('localStorageStatus', ls.check())
     this.$store.dispatch('updateAdmin', params.isParam('admin'))
 
+    this.$store.dispatch('updateMobile', window.outerWidth < 768)
+
     bus.emit('sendGetProperties')
 
     bus.on('updateProperties', (data) => {

@@ -6,6 +6,7 @@ export const store = createStore({
     connections: 0,
     connectionError: null,
     localStorageStatus: true,
+    mobile: false,
     session: '',
     tab: 'main',
     admin: false,
@@ -32,6 +33,9 @@ export const store = createStore({
     },
     getLocalStorageStatus: (state) => {
       return state.localStorageStatus
+    },
+    getMobile: (state) => {
+      return state.mobile
     },
     getSession: (state) => {
       return state.session
@@ -67,6 +71,9 @@ export const store = createStore({
     },
     updateSession: (state, payload) => {
       state.session = payload
+    },
+    updateMobile: (state, payload) => {
+      state.mobile = payload
     },
     updateLogin: (state, payload) => {
       state.session = payload.session

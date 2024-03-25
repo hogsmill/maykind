@@ -7,7 +7,7 @@
     </div>
     <div class="mt-4">
       <h4>Contact Us</h4>
-      <p class="modal-form">
+      <p class="modal-form" v-if="!mobile">
         Thanks for visiting MayKind. Please tick to indicate the nature of your enquiry.
       </p>
       <table>
@@ -97,6 +97,9 @@ export default {
     },
     emails() {
       return this.$store.getters.getEmails
+    },
+    mobile() {
+      return this.$store.getters.getMobile
     }
   },
   methods: {
