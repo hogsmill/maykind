@@ -1,30 +1,34 @@
 <template>
   <div class="main-tab container-fluid text-center">
     <div class="row">
-      <div class="col-sm tab" @click="setTab('Sell')">
-        <div class="sub-tab">
-          <img :src="link('image1.jpg')">
-          <h3>Sell</h3>
-        </div>
-      </div>
       <div class="col-sm tab" @click="setTab('Sale')">
         <div class="sub-tab">
           <img :src="link('image2.jpg')">
-          <h3>Buy</h3>
+          <h3>Residential Sales</h3>
         </div>
       </div>
       <div class="col-sm tab">
         <div class="sub-tab">
           <img :src="link('image3.jpg')" @click="setTab('Rental')">
-          <h3>Rent</h3>
+          <h3>Properties to Let</h3>
         </div>
       </div>
+      <div class="col-sm tab" @click="setTab('Sell')">
+        <div class="sub-tab">
+          <img :src="link('image1.jpg')">
+          <h3>Book a Valuation</h3>
+        </div>
+      </div>
+
+
+      <!--
       <div class="col-sm tab">
         <div class="sub-tab">
           <img :src="link('image3.jpg')" @click="setTab('Landlords')">
           <h3>Landlords</h3>
         </div>
       </div>
+      -->
     </div>
   </div>
 </template>
@@ -37,7 +41,23 @@ import fileFuns from '../lib/file.js'
 export default {
   methods: {
     setTab(tab) {
-      this.$store.dispatch('updateTab', tab)
+      console.log('here')
+      this.show()
+      //this.$store.dispatch('updateTab', tab)
+    },
+    show() {
+      if (this.mobile) {
+        this.mobileContact = !this.mobileContact
+        window.scrollTo(0, 0)
+      } else {
+        this.$store.dispatch('showModal', 'contact')
+      }
+    },
+    hide(modal) {
+      if (this.mobile) {
+        this.mobileContact = false
+      }
+      this.$store.dispatch('hideModal', 'contact')
     },
     link(file) {
       return fileFuns.link(file)

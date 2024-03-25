@@ -6,7 +6,7 @@ const prod = location.hostname != 'localhost'
 let asConnStr, connStr
 if (!prod) {
   asConnStr = 'http://localhost:3099'
-  connStr = 'http://localhost:3016'
+  connStr = 'http://localhost:4103'
 } else {
   asConnStr = 'https://agilesimulations.co.uk:3099'
   connStr = 'https://agilesimulations.co.uk:4103'

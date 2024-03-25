@@ -17,12 +17,17 @@
         <li v-if="admin || siteAdmin" :class="{'active': tab == 'test'}" @click="setTab('test')">
           Test
         </li>
+        <li>
+          {{ phoneNumber }}
+        </li>
+        <!--
         <li :class="{'active': tab == 'about'}" @click="setTab('about')">
           About Us
         </li>
         <li @click="show('contact')">
           Contact Us
         </li>
+        -->
       </ul>
     </div>
 
@@ -62,7 +67,8 @@ export default {
   data() {
     return {
       mobileContact: false,
-      hideMenu: true
+      hideMenu: true,
+      phoneNumber: '07905 468589'
     }
   },
   computed: {
@@ -86,8 +92,6 @@ export default {
     }
   },
   created() {
-    const self = this
-
     this.setTabFromParams()
   },
   methods: {
@@ -152,6 +156,9 @@ export default {
 </script>
 
 <style lang="scss">
+
+@import "../assets/colours.scss";
+
   .nav {
     padding: 0 12px;
     width: 100%;
@@ -160,13 +167,14 @@ export default {
     height: 220px;
 
     .logo-holder {
+      margin-left: 25px;
       &:hover {
         cursor: pointer;
       }
 
       .logo {
         position: absolute;
-        left: 12px;
+        left: 38px;
         top: 12px;
       }
     }
@@ -184,7 +192,7 @@ export default {
 
       ul {
         position: absolute;
-        right: 12px;
+        right: 28px;
         margin-top: 170px;
 
         &.hide {
@@ -195,7 +203,7 @@ export default {
           display: inline-block;
           list-style-type: none;
           padding: 15px 13px;
-          color: #204893 !important;
+          color: $mk-mid-grey !important;
           font-size: x-large;
 
           &.login, &.logout {

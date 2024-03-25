@@ -63,7 +63,7 @@ const MongoClient = require('mongodb').MongoClient
 const url = prod ? 'mongodb://127.0.0.1:27017/' : 'mongodb://localhost:27017/'
 const maxIdleTime = 7200000
 const connectDebugOff = prod
-const debugOn = true // !prod
+const debugOn = !prod
 
 const connections = {}
 const maxConnections = 2000
@@ -112,11 +112,11 @@ MongoClient.connect(url, { useUnifiedTopology: true, maxIdleTimeMS: maxIdleTime 
 
     // Properties
 
-    socket.on('sendGetProperties', (data) => { console.log('sendGetProperties'); dbStore.getProperties(db, io, data, debugOn) })
+    socket.on('sendGetProperties', (data) => { dbStore.getProperties(db, io, data, debugOn) })
 
     socket.on('sendUpdateLive', (data) => { dbStore.updateLive(db, io, data, debugOn) })
 
-    socket.on('sendCreateProperty', (data) => { console.log('sendCreateProperty'); dbStore.createProperty(db, io, data, debugOn) })
+    socket.on('sendCreateProperty', (data) => { dbStore.createProperty(db, io, data, debugOn) })
 
     socket.on('sendUpdateProperty', (data) => { dbStore.updateProperty(db, io, data, debugOn) })
 

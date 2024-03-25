@@ -8,12 +8,16 @@
     <div class="mt-4">
       <h4>Contact Us</h4>
       <p class="modal-form">
-        Thanks for visiting MayKind; please let us know how we can help you in the comments
-        box below, and we'll get back to you as soon as we can. If you can tick what you're
-        interested in below, we can better deal with your enquiry.
+        Thanks for visiting MayKind. Please tick to indicate the nature of your enquiry.
       </p>
       <table>
         <tr>
+          <td>
+            <input type="checkbox" v-model="buying">
+          </td>
+          <td class="left">
+            I am looking to buy a property
+          </td>
           <td>
             <input type="checkbox" v-model="selling">
           </td>
@@ -26,25 +30,19 @@
           <td class="left">
             I would like my property valued
           </td>
-          <td>
-            <input type="checkbox" v-model="buying">
-          </td>
-          <td class="left">
-            I am looking to buy a property
-          </td>
         </tr>
         <tr>
-          <td>
-            <input type="checkbox" v-model="torent">
-          </td>
-          <td class="left">
-            I have a property to rent
-          </td>
           <td>
             <input type="checkbox" v-model="renting">
           </td>
           <td class="left">
             I am looking for rental properties
+          </td>
+          <td>
+            <input type="checkbox" v-model="torent">
+          </td>
+          <td class="left">
+            I have a property to let
           </td>
           <td>
             <input type="checkbox" v-model="other">
@@ -60,6 +58,10 @@
         <input type="text" id="mobile" class="form-control" placeholder="Mobile Number">
         <br>
         <input type="text" id="email" class="form-control" placeholder="Email">
+        <br>
+        <input type="text" id="address" class="form-control" placeholder="Address">
+        <br>
+        <input type="text" id="postcode" class="form-control" placeholder="Postcode">
         <br>
         <textarea id="comments" rows="6" class="form-control" placeholder="Your comments" />
         <br>
@@ -126,6 +128,7 @@ export default {
         name: encodeURIComponent(document.getElementById('name').value),
         mobile: encodeURIComponent(document.getElementById('mobile').value),
         email: encodeURIComponent(document.getElementById('email').value),
+        address: encodeURIComponent(document.getElementById('address').value),
         comments: encodeURIComponent(this.category() + document.getElementById('comments').value),
         },
         'Thanks for your enquiry - we\'ll get back to you shortly!'
