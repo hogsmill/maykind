@@ -3,7 +3,6 @@
     <div class="logo-holder" @click="setTab('main')">
       <img class="logo" :src="link('May-Kind-key-tiny-logo.jpg')">
     </div>
-    <h1>Sales and Lettings</h1>
 
     <div v-if="mobile" class="hamburger">
       <i class="fas fa-hamburger" @click="toggleMenu()" />
