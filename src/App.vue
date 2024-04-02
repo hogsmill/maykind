@@ -7,9 +7,6 @@
       WARNING: {{ localStorageStatus }} - please enable cookies in browser settings
     </div>
     <Header />
-    <div class="temp">
-      mobile: {{ mobile }}, modal: {{ modal }}, mobile && modal {{ mobile && modal }}
-    </div>
     <div v-if="mobile && modal">
       <Modals />
     </div>
@@ -108,10 +105,6 @@ export default {
 </script>
 
 <style lang="scss">
-
-.temp {
-  background-color: yellow;
-}
 
 .content {
   position: relative;
