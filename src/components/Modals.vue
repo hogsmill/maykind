@@ -72,6 +72,7 @@ export default {
   @media screen and (max-width: 768px) {
     .modal-container {
       display: block;
+      overflow-y: scroll;
     }
     .modal-content {
       display: block;
