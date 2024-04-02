@@ -7,7 +7,13 @@
       WARNING: {{ localStorageStatus }} - please enable cookies in browser settings
     </div>
     <Header />
-    <div class="content">
+    <div class="temp">
+      mobile: {{ mobile }}, modal: {{ modal }}, mobile && modal {{ mobile && modal }}
+    </div>
+    <div v-if="mobile && modal">
+      <Modals />
+    </div>
+    <div v-if="!(mobile && modal)" class="content">
       <Admin v-if="tab == 'admin'" />
       <Test v-if="tab == 'test'" />
       <Main v-if="tab == 'main'" />
@@ -66,6 +72,12 @@ export default {
     },
     admin() {
       return this.$store.getters.getAdmin
+    },
+    mobile() {
+      return this.$store.getters.getMobile
+    },
+    modal() {
+      return this.$store.getters.getModal
     }
   },
   created() {
@@ -96,6 +108,10 @@ export default {
 </script>
 
 <style lang="scss">
+
+.temp {
+  background-color: yellow;
+}
 
 .content {
   position: relative;

@@ -88,7 +88,8 @@ export default {
       valuation: false,
       buying: false,
       torent: false,
-      renting: false
+      renting: false,
+      other: false
     }
   },
   computed: {

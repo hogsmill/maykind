@@ -10,7 +10,7 @@
       <div class="col-sm tab">
         <div class="sub-tab">
           <img :src="link('lettings.jpg')" @click="setTab('Rental')">
-          <h3>Properties to Let</h3>
+          <h3>Residential Lettings</h3>
         </div>
       </div>
       <div class="col-sm tab" @click="setTab('Sell')">
@@ -19,16 +19,6 @@
           <h3>Book a Valuation</h3>
         </div>
       </div>
-
-
-      <!--
-      <div class="col-sm tab">
-        <div class="sub-tab">
-          <img :src="link('image3.jpg')" @click="setTab('Landlords')">
-          <h3>Landlords</h3>
-        </div>
-      </div>
-      -->
     </div>
   </div>
 </template>
@@ -45,6 +35,7 @@ export default {
       //this.$store.dispatch('updateTab', tab)
     },
     show() {
+      console.log(this.mobile)
       if (this.mobile) {
         this.mobileContact = !this.mobileContact
         window.scrollTo(0, 0)
@@ -53,9 +44,6 @@ export default {
       }
     },
     hide(modal) {
-      if (this.mobile) {
-        this.mobileContact = false
-      }
       this.$store.dispatch('hideModal', 'contact')
     },
     link(file) {

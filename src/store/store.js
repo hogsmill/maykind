@@ -49,6 +49,17 @@ export const store = createStore({
     getSiteAdmin: (state) => {
       return state.siteAdmin
     },
+    getModal: (state) => {
+      let isModal = false
+      const keys = Object.keys(state.modals)
+      for (let i = 0; i < keys.length; i++) {
+        console.log(keys[i], state.modals[keys[i]])
+        if (state.modals[keys[i]]) {
+          isModal = true
+        }
+      }
+      return isModal
+    },
     getModals: (state) => {
       return state.modals
     },
@@ -73,6 +84,7 @@ export const store = createStore({
       state.session = payload
     },
     updateMobile: (state, payload) => {
+      console.log(payload)
       state.mobile = payload
     },
     updateLogin: (state, payload) => {
@@ -122,6 +134,9 @@ export const store = createStore({
     },
     updateAdmin: ({ commit }, payload) => {
       commit('updateAdmin', payload)
+    },
+    updateMobile: ({ commit }, payload) => {
+      commit('updateMobile', payload)
     },
     updateSiteAdmin: ({ commit }, payload) => {
       commit('updateSiteAdmin', payload)

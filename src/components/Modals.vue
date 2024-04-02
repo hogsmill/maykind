@@ -68,4 +68,17 @@ export default {
       margin: 0 auto;
     }
   }
+
+  @media screen and (max-width: 768px) {
+    .modal-container {
+      display: block;
+    }
+    .modal-content {
+      display: block;
+      top: 0;
+      left: 0;
+      margin: 0;
+      width: 100%;
+    }
+  }
 </style>
