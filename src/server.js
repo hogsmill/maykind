@@ -49,7 +49,7 @@ if (!prod) {
   httpServer = require('https').createServer(options)
   io = require('socket.io')(httpServer, {
     cors: {
-      origins: ['https://agilesimulations.co.uk'],
+      origins: ['https://maykind.co.uk'],
       methods: ['GET', 'POST'],
       credentials: true
     }
